@@ -11,27 +11,25 @@ namespace Entities
     public class Cuentas
     {
         [Key]
-        public int CuentaId { get; set; }
+        public int CuentaBancariaId { get; set; }
+
         public DateTime Fecha { get; set; }
+
         public string Nombre { get; set; }
-        public decimal Balance { get; set; }
-        
+
+        public int Balance { get; set; }
+
+        public virtual List<Depositos> Detalle { get; set; }
+
+
         public Cuentas()
         {
-            CuentaId = 0;
-            Fecha = DateTime.Now;
-            Nombre = string.Empty;
-            Balance = 0;
-
+            this.Detalle = new List<Depositos>();
         }
 
-        public Cuentas(int id, DateTime fecha, string nombre, decimal balance)
+        public void AgregarDetalle(int DepositoId, DateTime Fecha, int CuentaId, string Concepto, int Monto)
         {
-            CuentaId = id;
-            Fecha = fecha;
-            Nombre = nombre;
-            Balance = balance;
-
+            this.Detalle.Add(new Depositos(DepositoId, Fecha, CuentaId, Concepto, Monto));
         }
 
     }
