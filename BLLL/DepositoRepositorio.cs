@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace BLLL
 {
     public class DepositoRepositorio : RepositorioBase<Depositos>
     {
