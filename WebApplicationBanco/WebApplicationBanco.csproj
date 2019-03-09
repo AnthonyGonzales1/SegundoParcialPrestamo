@@ -82,6 +82,7 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-1.6.3-vsdoc.js" />
+    <Content Include="Registros\WebFormPrestamo.aspx" />
     <Content Include="Scripts\jquery-1.6.3.js" />
     <Content Include="Scripts\jquery-1.6.3.min.js" />
     <Content Include="Scripts\toastr.js" />
@@ -127,6 +128,13 @@
     </Compile>
     <Compile Include="Registros\WebFormDepositos.aspx.designer.cs">
       <DependentUpon>WebFormDepositos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\WebFormPrestamo.aspx.cs">
+      <DependentUpon>WebFormPrestamo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\WebFormPrestamo.aspx.designer.cs">
+      <DependentUpon>WebFormPrestamo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
