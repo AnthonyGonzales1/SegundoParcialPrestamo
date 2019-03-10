@@ -139,15 +139,6 @@ namespace WebApplicationBanco.Registros {
         protected global::System.Web.UI.WebControls.RangeValidator RangeValidator;
         
         /// <summary>
-        /// NuevoButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button NuevoButton;
-        
-        /// <summary>
         /// GuardarButton control.
         /// </summary>
         /// <remarks>
@@ -155,6 +146,15 @@ namespace WebApplicationBanco.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button GuardarButton;
+        
+        /// <summary>
+        /// NuevoButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button NuevoButton;
         
         /// <summary>
         /// EliminarButton control.

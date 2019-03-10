@@ -22,11 +22,9 @@
             <div class="form-group row justify-content-center">
                 sPrestamo ID<div class="col-lg-3">
                     <div class="input-group">
-                        <asp:TextBox ID="IdTextBox" CssClass="form-control" TextMode="Number" runat="server" OnTextChanged="IdTextBox_TextChanged"></asp:TextBox>
+                        <asp:TextBox ID="IdTextBox" CssClass="form-control" TextMode="Number" runat="server" ></asp:TextBox>
                         <div class="input-group-append">
-                            <asp:Button ID="BuscarButton" CssClass="btn btn-secondary" runat="server" CausesValidation="False" >
-                                
-                            </asp:Button>
+                            <asp:Button ID="BuscarButton" runat="server" CssClass="btn btn-secondary" Text="Buscar" OnClick="BuscarButton_Click" />
                         </div>
                     </div>                 
                 </div>
@@ -42,7 +40,7 @@
             <div class="form-group row justify-content-center">
                 <asp:Label ID="Label5" CssClass="col-form-label" Text="Cuenta" runat="server">Cuenta:</asp:Label>
                 <div class="col-lg-4">
-                    <asp:DropDownList ID="CuentaDropDownList" runat="server">
+                    <asp:DropDownList ID="CuentaDropDownList" CssClass="btn btn-secondary" runat="server">
                         <asp:ListItem>Seleccionar</asp:ListItem>
                     </asp:DropDownList>
                 </div>
@@ -55,7 +53,7 @@
             <div class="form-group row justify-content-center">
                 <asp:Label ID="Label4" CssClass="col-form-label" Text="Capital:" runat="server"></asp:Label>
                 <div class="col-lg-4">
-                    <asp:TextBox ID="CapitalTextBox" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="CapitalTextBox" CssClass="form-control"  runat="server"></asp:TextBox>
                 </div>
                 <div class="col-lg-1">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="CapitalTextBox" Text="*" runat="server" Display="Dynamic" ErrorMessage="Indique un concepto"></asp:RequiredFieldValidator>
@@ -68,7 +66,7 @@
                 <div class="col-lg-4">
                     <div class="input-group">
                         <div class="input-group-append">
-                            <asp:TextBox ID="InteresTextBox" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="InteresTextBox" CssClass="form-control" runat="server"></asp:TextBox>
                             <span class="input-group-text">%</span>
                         </div>
                     </div>
@@ -83,7 +81,7 @@
             <div class="form-group row justify-content-center">
                 <asp:Label ID="Label7" CssClass="col-form-label" Text="Tiempo" runat="server">Tiempo:</asp:Label>
                 <div class="col-lg-4">
-                    <asp:TextBox ID="TiempoTextBox" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TiempoTextBox" CssClass="form-control"  runat="server"></asp:TextBox>
                 </div>
                 <div class="col-lg-1">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="TiempoTextBox" Text="*" Display="Dynamic" runat="server" ErrorMessage="Debe ingresar el tiempo de pago"></asp:RequiredFieldValidator>
@@ -91,8 +89,7 @@
                 </div>
                 <div class="w-100"></div>
                 <div class="col-lg-6">
-                    <asp:Button ID="CalcularButton" CssClass="btn btn-primary" runat="server" Text="Calcular" >
-                    </asp:Button>
+                    <asp:Button ID="CalcularButton" runat="server" CssClass="btn btn-secondary" Text="Calcular" OnClick="CalcularButton_Click1" />
                     <br />
                 </div>
             </div>
@@ -103,7 +100,6 @@
                     <asp:GridView ID="CuotaGridView" runat="server" AllowPaging="True" PageSize="7" CssClass="table table-striped table-hover table-responsive-lg" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
-                            <asp:BoundField DataField="NoPago" HeaderText="Cuota" />
                             <asp:BoundField HeaderText="Fecha" />
                             <asp:BoundField DataField="Interes" HeaderText="Interes" />
                             <asp:BoundField DataField="Capital" HeaderText="Capital" />
@@ -128,9 +124,9 @@
                     <asp:TextBox ID="InteresTotalTextBox" CssClass="form-control" Visible="false" ReadOnly="true" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-lg-2 mr-3">
-                    <asp:TextBox ID="CapitalTotalTextBox" CssClass="form-control" Visible="false" ReadOnly="true" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-lg-2 ml-5 mr-1">
+                    <asp:TextBox ID="CapitalTotalTextBox" CssClass="form-control" Visible="false" ReadOnly="true" runat="server"></asp:TextBox>
                 </div>
             </div>
     
@@ -142,33 +138,25 @@
             <div class="form-group row justify-content-center">
                 <!--Nuevo-->
                 <div class="col-lg-1 mr-1">
-                    <asp:Button ID="NuevoButton" CssClass="btn btn-primary" runat="server" CausesValidation="False" Text="Nuevo" >
-                        
-                    </asp:Button>
+                    <asp:Button ID="NuevoButton" runat="server" CssClass="btn btn-secondary" Text="Nuevo" OnClick="NuevoButton_Click" />
                     <br />
                 </div>
 
                 <!--Guardar-->
                 <div class="col-lg-1 mr-3">
-                    <asp:Button ID="GuardarButton" CssClass="btn btn-primary" runat="server" CausesValidation="False" Text="Guardar" >
-                        
-                    </asp:Button>
+                    <asp:Button ID="GuardarButton" runat="server" CssClass="btn btn-secondary" Text="Guardar" OnClick="GuardarButton_Click" />
                     <br />
                 </div>
 
                 <!--Eliminar-->
                 <div class="col-lg-1 mr-3">
-                    <asp:Button ID="EliminarButton" CssClass="btn btn-primary" runat="server" CausesValidation="False" Text="Eliminar" >
-                        
-                    </asp:Button>
+                    <asp:Button ID="EliminarButton" runat="server" CssClass="btn btn-secondary" Text="Elminar" OnClick="EliminarButton_Click" />
                     <br />
                 </div> 
 
                 <!--Imprimir-->
                 <div class="col-lg-1 mr-3">
-                    <asp:Button ID="ImprimirButton" CssClass="btn btn-primary" runat="server" CausesValidation="False"  Text="Imprimir" >
-                        
-                    </asp:Button>
+                    <asp:Button ID="ImprimirButton" runat="server" CssClass="btn btn-secondary" Text="Imprimir" OnClick="ImprimirButton_Click1" />
                     <br />
                 </div>      
             </div>

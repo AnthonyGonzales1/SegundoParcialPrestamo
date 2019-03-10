@@ -15,9 +15,7 @@
                     <asp:TextBox ID="IdTextBox" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                 </div>
                 <div class="col-lg-1">
-                    <asp:Button ID="BuscarButton" runat="server" CausesValidation="False" CssClass="btn btn-secondary" Text="Buscar" >
-                        
-                    </asp:Button>
+                    <asp:Button ID="BuscarButton" runat="server" CssClass="btn btn-secondary" Text="Buscar" OnClick="BuscarButton_Click1" />
                 </div>
             </div>
 
@@ -72,19 +70,13 @@
             <!--Butones-->
             <div class="form-group row justify-content-center">
                 <div class="col-lg-1 mr-1">
-                    <asp:Button ID="NuevoButton" runat="server" CausesValidation="False" CssClass="btn btn-primary" Text="Nuevo" >
-                       
-                    </asp:Button>
+                    <asp:Button ID="GuardarButton" runat="server" CssClass="btn btn-secondary" Text="Guardar" OnClick="GuardarButton_Click1" />
                 </div>
                 <div class="col-lg-1 mr-3">
-                    <asp:Button ID="GuardarButton" runat="server" CssClass="btn btn-primary" OnClick="GuardarButton_Click" Text="Guardar" >
-                        
-                    </asp:Button>
+                    <asp:Button ID="NuevoButton" runat="server" CssClass="btn btn-secondary" Text="Nuevo" OnClick="NuevoButton_Click1" />
                 </div>
                 <div class="col-lg-1 mr-3">
-                    <asp:Button ID="EliminarButton" runat="server" CausesValidation="False" CssClass="btn btn-primary" Text="Elminar" >
-                        
-                    </asp:Button>
+                    <asp:Button ID="EliminarButton" runat="server" CssClass="btn btn-secondary" Text="Eliminar" OnClick="EliminarButton_Click1" />
                 </div>
             </div>
 

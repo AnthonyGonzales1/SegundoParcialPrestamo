@@ -77,8 +77,9 @@ namespace WebApplicationBanco.Registros
             MontoTextBox.Text = d.Monto.ToString();
         }
         
-        protected void BuscarButton_Click(object sender, EventArgs e)
+        protected void BuscarButton_Click1(object sender, EventArgs e)
         {
+
             RepositorioBase<Depositos> repositorio = new RepositorioBase<Depositos>();
             Depositos depositos = repositorio.Buscar(ToInt(IdTextBox.Text));
             if (depositos != null)
@@ -87,12 +88,7 @@ namespace WebApplicationBanco.Registros
                 CallModal("Este deposito no existe");
         }
 
-        protected void NuevoButton_Click(object sender, EventArgs e)
-        {
-            Limpiar();
-        }
-
-        protected void GuardarButton_Click(object sender, EventArgs e)
+        protected void GuardarButton_Click1(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
@@ -117,7 +113,12 @@ namespace WebApplicationBanco.Registros
             }
         }
 
-        protected void EliminarButton_Click(object sender, EventArgs e)
+        protected void NuevoButton_Click1(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        protected void EliminarButton_Click1(object sender, EventArgs e)
         {
             DepositoRepositorio repositorio = new DepositoRepositorio();
             Depositos depositos = repositorio.Buscar(ToInt(IdTextBox.Text));

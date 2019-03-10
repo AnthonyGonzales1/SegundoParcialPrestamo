@@ -108,84 +108,16 @@ namespace WebApplicationBanco.Registros
 
         protected void IdTextBox_TextChanged(object sender, EventArgs e)
         { }
-
-        protected void BuscarButton_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        protected void NuevoButton_Click(object sender, EventArgs e)
-        {
-           
-        }
+        
 
         private bool Calculo()
         {
             return (CuotaGridView.Rows.Count > 0 || CuotaGridView.DataSource != null) ? true : false;
         }
-        
-        
-        protected void ImprimirButton_Click(object sender, EventArgs e)
+       
+        protected void BuscarButton_Click(object sender, EventArgs e)
         {
 
-        }
-
-        protected void NuevoButton_Click2(object sender, EventArgs e)
-        {
-            Limpiar();
-        }
-
-        protected void GuardarButton_Click2(object sender, EventArgs e)
-        {
-            if (Page.IsValid)
-            {
-                if (Calculo())
-                {
-                    PrestamoRepositorio rep = new PrestamoRepositorio();
-
-                    if (ToInt(IdTextBox.Text) == 0)
-                    {
-                        if (rep.Guardar(LlenaClase()))
-                        {
-                            CallModal("Prestamo registrado. " + LlenaClase().Detalle.Count);
-                            Limpiar();
-                        }
-                    }
-                    else
-                    {
-                        if (rep.Modificar(LlenaClase()))
-                        {
-                            CallModal("Prestamo modificado.");
-                            Limpiar();
-                        }
-                    }
-                }
-                else
-                    CallModal("Amortizacion no calculada.");
-
-            }
-        }
-
-        protected void EliminarButton_Click2(object sender, EventArgs e)
-        {
-
-            PrestamoRepositorio rep = new PrestamoRepositorio();
-            Prestamos prestamos = rep.Buscar(ToInt(IdTextBox.Text));
-
-            if (prestamos != null)
-            {
-                if (rep.Eliminar(ToInt(IdTextBox.Text)))
-                {
-                    CallModal("Prestamo eliminado");
-                    Limpiar();
-                }
-                else
-                    CallModal("Prestamo no eliminado");
-            }
-        }
-
-        protected void BuscarButton_Click1(object sender, EventArgs e)
-        {
             PrestamoRepositorio rep = new PrestamoRepositorio();
             Prestamos prestamo = rep.Buscar(ToInt(IdTextBox.Text));
 
@@ -225,6 +157,66 @@ namespace WebApplicationBanco.Registros
             ViewState["Detalle"] = detalle;
             CapitalTotalTextBox.Text = totalCapital.ToString();
             InteresTotalTextBox.Text = totalInteres.ToString();
+        }
+
+        protected void NuevoButton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        protected void GuardarButton_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                if (Calculo())
+                {
+                    PrestamoRepositorio rep = new PrestamoRepositorio();
+
+                    if (ToInt(IdTextBox.Text) == 0)
+                    {
+                        if (rep.Guardar(LlenaClase()))
+                        {
+                            CallModal("Prestamo registrado. " + LlenaClase().Detalle.Count);
+                            Limpiar();
+                        }
+                    }
+                    else
+                    {
+                        if (rep.Modificar(LlenaClase()))
+                        {
+                            CallModal("Prestamo modificado.");
+                            Limpiar();
+                        }
+                    }
+                }
+                else
+                    CallModal("Amortizacion no calculada.");
+
+            }
+        }
+
+        protected void EliminarButton_Click(object sender, EventArgs e)
+        {
+
+
+                PrestamoRepositorio rep = new PrestamoRepositorio();
+                Prestamos prestamos = rep.Buscar(ToInt(IdTextBox.Text));
+
+                if (prestamos != null)
+                {
+                    if (rep.Eliminar(ToInt(IdTextBox.Text)))
+                    {
+                        CallModal("Prestamo eliminado");
+                        Limpiar();
+                    }
+                    else
+                        CallModal("Prestamo no eliminado");
+                }
+            }
+
+            protected void ImprimirButton_Click1(object sender, EventArgs e)
+        {
+
         }
     }
 }
