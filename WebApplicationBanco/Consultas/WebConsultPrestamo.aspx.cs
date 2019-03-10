@@ -105,7 +105,10 @@ namespace WebApplicationBanco.Consultas
 
         protected void PrestamoGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            PrestamoRepositorio rep = new PrestamoRepositorio();
+            PrestamoGridView.DataSource = rep.GetList(filter);
+            //PrestamoGridView.PageIndex = e.NewPageIndex;
+            PrestamoGridView.DataBind();
         }
 
         protected void BuscarButton_Click1(object sender, EventArgs e)

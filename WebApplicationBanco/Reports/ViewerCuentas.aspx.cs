@@ -17,12 +17,7 @@ namespace WebApplicationBanco.Reports
         {
             if (!Page.IsPostBack)
             {
-                CuentasReportViewer.ProcessingMode = ProcessingMode.Local;
-                CuentasReportViewer.Reset();
-                CuentasReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoCuentas.rdlc");
-                CuentasReportViewer.LocalReport.DataSources.Clear();
-                CuentasReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DepositosDS", BLL.Metodos.FCuentas(filtro)));
-                CuentasReportViewer.LocalReport.Refresh();
+                
             }
         }
     }
