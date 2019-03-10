@@ -17,7 +17,7 @@ namespace WebApplicationBanco.Reports
             PrestamoReportViewer.ProcessingMode = ProcessingMode.Local;
             PrestamoReportViewer.Reset();
 
-            PrestamoReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reports\ReportCuentas.rdlc");
+            PrestamoReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reports\ReportPrestamos.rdlc");
             PrestamoReportViewer.LocalReport.DataSources.Clear();
             PrestamoReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Prestamos", repositorio.GetList(x => true)));
             PrestamoReportViewer.LocalReport.Refresh();

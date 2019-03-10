@@ -17,7 +17,7 @@ namespace WebApplicationBanco.Reports
             DepositoReportViewer.ProcessingMode = ProcessingMode.Local;
             DepositoReportViewer.Reset();
 
-            DepositoReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reports\ReportCuentas.rdlc");
+            DepositoReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reports\ReportDepositos.rdlc");
             DepositoReportViewer.LocalReport.DataSources.Clear();
             DepositoReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Depositos", repositorio.GetList(x=>true)));
             DepositoReportViewer.LocalReport.Refresh();
