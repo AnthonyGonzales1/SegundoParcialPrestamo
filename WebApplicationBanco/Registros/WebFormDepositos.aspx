@@ -15,7 +15,7 @@
                     <asp:TextBox ID="IdTextBox" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                 </div>
                 <div class="col-lg-1">
-                    <asp:Button ID="BuscarButton" runat="server" CausesValidation="False" CssClass="btn btn-secondary" OnClick="BuscarButton_Click" Text="Buscar" >
+                    <asp:Button ID="BuscarButton" runat="server" CausesValidation="False" CssClass="btn btn-secondary" Text="Buscar" >
                         
                     </asp:Button>
                 </div>
@@ -72,7 +72,7 @@
             <!--Butones-->
             <div class="form-group row justify-content-center">
                 <div class="col-lg-1 mr-1">
-                    <asp:Button ID="NuevoButton" runat="server" CausesValidation="False" CssClass="btn btn-primary" OnClick="NuevoButton_Click" Text="Nuevo" >
+                    <asp:Button ID="NuevoButton" runat="server" CausesValidation="False" CssClass="btn btn-primary" Text="Nuevo" >
                        
                     </asp:Button>
                 </div>
@@ -82,7 +82,7 @@
                     </asp:Button>
                 </div>
                 <div class="col-lg-1 mr-3">
-                    <asp:Button ID="EliminarButton" runat="server" CausesValidation="False" CssClass="btn btn-primary" OnClick="EliminarButton_Click" Text="Elminar" >
+                    <asp:Button ID="EliminarButton" runat="server" CausesValidation="False" CssClass="btn btn-primary" Text="Elminar" >
                         
                     </asp:Button>
                 </div>

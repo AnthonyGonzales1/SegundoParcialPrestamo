@@ -24,7 +24,7 @@
                     <div class="input-group">
                         <asp:TextBox ID="IdTextBox" CssClass="form-control" TextMode="Number" runat="server" OnTextChanged="IdTextBox_TextChanged"></asp:TextBox>
                         <div class="input-group-append">
-                            <asp:Button ID="BuscarButton" CssClass="btn btn-secondary" runat="server" CausesValidation="False" OnClick="BuscarButton_Click1" Text="Buscar" >
+                            <asp:Button ID="BuscarButton" CssClass="btn btn-secondary" runat="server" CausesValidation="False" >
                                 
                             </asp:Button>
                         </div>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="w-100"></div>
                 <div class="col-lg-6">
-                    <asp:Button ID="CalcularButton" CssClass="btn btn-primary" runat="server" Text="Calcular" OnClick="CalcularButton_Click1">
+                    <asp:Button ID="CalcularButton" CssClass="btn btn-primary" runat="server" Text="Calcular" >
                     </asp:Button>
                     <br />
                 </div>
@@ -142,34 +142,31 @@
             <div class="form-group row justify-content-center">
                 <!--Nuevo-->
                 <div class="col-lg-1 mr-1">
-                    <asp:Button ID="NuevoButton" CssClass="btn btn-primary" runat="server" CausesValidation="False" Text="Nuevo" OnClick="NuevoButton_Click2" >
+                    <asp:Button ID="NuevoButton" CssClass="btn btn-primary" runat="server" CausesValidation="False" Text="Nuevo" >
                         
                     </asp:Button>
-                    <br />
                     <br />
                 </div>
 
                 <!--Guardar-->
                 <div class="col-lg-1 mr-3">
-                    <asp:Button ID="GuardarButton" CssClass="btn btn-primary" runat="server" CausesValidation="False" Text="Guardar" OnClick="GuardarButton_Click2" >
+                    <asp:Button ID="GuardarButton" CssClass="btn btn-primary" runat="server" CausesValidation="False" Text="Guardar" >
                         
                     </asp:Button>
-                    <br />
                     <br />
                 </div>
 
                 <!--Eliminar-->
                 <div class="col-lg-1 mr-3">
-                    <asp:Button ID="EliminarButton" CssClass="btn btn-primary" runat="server" CausesValidation="False" Text="Eliminar" OnClick="EliminarButton_Click2" >
+                    <asp:Button ID="EliminarButton" CssClass="btn btn-primary" runat="server" CausesValidation="False" Text="Eliminar" >
                         
                     </asp:Button>
-                    <br />
                     <br />
                 </div> 
 
                 <!--Imprimir-->
                 <div class="col-lg-1 mr-3">
-                    <asp:Button ID="ImprimirButton" CssClass="btn btn-primary" runat="server" CausesValidation="False"  Text="Imprimir" OnClick="ImprimirButton_Click">
+                    <asp:Button ID="ImprimirButton" CssClass="btn btn-primary" runat="server" CausesValidation="False"  Text="Imprimir" >
                         
                     </asp:Button>
                     <br />
