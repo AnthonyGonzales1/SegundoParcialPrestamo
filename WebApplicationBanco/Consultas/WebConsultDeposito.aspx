@@ -46,12 +46,23 @@
             <!--Grid-->
             <div class="row justify-content-center mt-3">
                 <div class="col-lg-11">
-                    <asp:GridView ID="DepositoGridView" runat="server" AllowPaging="true" AutoGenerateColumns="False" CssClass="table table-striped table-hover table-responsive-lg" PageSize="7" OnSelectedIndexChanged="DepositoGridView_SelectedIndexChanged">
+                    <asp:GridView ID="DepositoGridView" runat="server" AllowPaging="True" AutoGenerateColumns="False" CssClass="table table-striped table-hover table-responsive-lg" PageSize="7" OnSelectedIndexChanged="DepositoGridView_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None">
+                        <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
                             <asp:BoundField DataField="Concepto" HeaderText="Concepto" />
                             <asp:BoundField DataField="Monto" HeaderText="Monto" />
                         </Columns>
+                        <EditRowStyle BackColor="#2461BF" />
+                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#EFF3FB" />
+                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                        <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
                 </div>
         </div>

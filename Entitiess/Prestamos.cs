@@ -14,10 +14,12 @@ namespace Entities
         public int PrestamoId { get; set; }
         public int CuentaId { get; set; }
         public DateTime Fecha { get; set; }
-        public float Interes { get; set; }
+        public decimal Interes { get; set; }
         public int Tiempo { get; set; }
         public decimal Capital { get; set; }
-        public decimal Monto { get; set; }
+        public int Monto { get; set; }
+        public decimal CapitalTotal { get; set; }
+        public decimal InteresTotal { get; set; }
         public virtual List<Cuotas> Detalle { get; set; }
 
         public Prestamos()
@@ -28,10 +30,12 @@ namespace Entities
             Interes = 0;
             Tiempo = 0;
             Monto = 0;
+            CapitalTotal = 0;
+            InteresTotal = 0;
             Detalle = new List<Cuotas>();
         }
 
-        public Prestamos(int id, int cuentaId, DateTime fecha, decimal capital, float interes, int tiempo, decimal monto)
+        public Prestamos(int id, int cuentaId, DateTime fecha, decimal capital, decimal interes, int tiempo, int monto, decimal interesTotal, decimal capitalTotal)
         {
             PrestamoId = id;
             CuentaId = cuentaId;
@@ -39,10 +43,12 @@ namespace Entities
             Interes = interes;
             Tiempo = tiempo;
             Monto = monto;
+            CapitalTotal = capitalTotal;
+            InteresTotal = interesTotal;
             Detalle = new List<Cuotas>();
         }
 
-        public Prestamos(int id, int cuentaId, DateTime fecha, decimal capital, float interes, int tiempo, decimal monto, List<Cuotas> detalle)
+        public Prestamos(int id, int cuentaId, DateTime fecha, decimal capital, decimal interes, int tiempo, decimal monto, decimal capitalTotal, decimal interesTotal, List<Cuotas> detalle)
         {
             PrestamoId = id;
             CuentaId = cuentaId;
@@ -51,6 +57,8 @@ namespace Entities
             Interes = interes;
             Tiempo = tiempo;
             Monto = Monto;
+            CapitalTotal = capitalTotal;
+            InteresTotal = interesTotal;
             Detalle = detalle;
         }
 
@@ -68,7 +76,8 @@ namespace Entities
                 decimal.Parse(capital),
                 decimal.Parse(interes),
                 decimal.Parse(cuota),
-                decimal.Parse(balance)));
+                decimal.Parse(balance)
+                ));
         }
 
         public void AddCuota(Cuotas cuota)

@@ -22,12 +22,11 @@
             <div class="form-group row justify-content-center">
                 sPrestamo ID<div class="col-lg-3">
                     <div class="input-group">
-                        <asp:TextBox ID="IdTextBox" CssClass="form-control" TextMode="Number" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="IdTextBox" CssClass="form-control" TextMode="Number" runat="server" OnTextChanged="IdTextBox_TextChanged"></asp:TextBox>
                         <div class="input-group-append">
-                            <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-secondary" runat="server" CausesValidation="False" OnClick="BuscarLinkButton_Click">
-                                <span class="fas fa-search"></span>
-                                Buscar
-                            </asp:LinkButton>
+                            <asp:Button ID="BuscarButton" CssClass="btn btn-secondary" runat="server" CausesValidation="False" OnClick="BuscarButton_Click" Text="Buscar">
+                                
+                            </asp:Button>
                         </div>
                     </div>                 
                 </div>
@@ -43,7 +42,8 @@
             <div class="form-group row justify-content-center">
                 <asp:Label ID="Label5" CssClass="col-form-label" Text="Cuenta" runat="server">Cuenta:</asp:Label>
                 <div class="col-lg-4">
-                    <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:DropDownList ID="CuentaDropDownList" runat="server">
+                        <asp:ListItem>Seleccionar</asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="col-lg-1">
@@ -53,9 +53,9 @@
 
             <!--Credito-->
             <div class="form-group row justify-content-center">
-                <asp:Label ID="Label4" CssClass="col-form-label" Text="Capital" runat="server">Credito:</asp:Label>
+                <asp:Label ID="Label4" CssClass="col-form-label" Text="Capital:" runat="server"></asp:Label>
                 <div class="col-lg-4">
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="CapitalTextBox" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-lg-1">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="CapitalTextBox" Text="*" runat="server" Display="Dynamic" ErrorMessage="Indique un concepto"></asp:RequiredFieldValidator>
@@ -68,7 +68,7 @@
                 <div class="col-lg-4">
                     <div class="input-group">
                         <div class="input-group-append">
-                            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="InteresTextBox" runat="server"></asp:TextBox>
                             <span class="input-group-text">%</span>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
             <div class="form-group row justify-content-center">
                 <asp:Label ID="Label7" CssClass="col-form-label" Text="Tiempo" runat="server">Tiempo:</asp:Label>
                 <div class="col-lg-4">
-                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TiempoTextBox" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-lg-1">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="TiempoTextBox" Text="*" Display="Dynamic" runat="server" ErrorMessage="Debe ingresar el tiempo de pago"></asp:RequiredFieldValidator>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="w-100"></div>
                 <div class="col-lg-6">
-                    <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Calcular" />
+                    <asp:Button ID="CalcularButton" CssClass="btn btn-primary" runat="server" Text="Calcular" OnClick="CalcularButton_Click" />
                     <br />
                 </div>
             </div>
@@ -99,14 +99,25 @@
             <!--Grid-->
             <div class="row justify-content-center mt-3">
                 <div class="col-lg-11">           
-                    <asp:GridView ID="CuotaGridView" runat="server" AllowPaging="true" PageSize="7" CssClass="table table-striped table-hover table-responsive-lg" AutoGenerateColumns="False">
+                    <asp:GridView ID="CuotaGridView" runat="server" AllowPaging="True" PageSize="7" CssClass="table table-striped table-hover table-responsive-lg" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+                        <AlternatingRowStyle BackColor="White" />
                         <Columns>
-                            <asp:BoundField DataField="NoPago" HeaderText="Pago#" />
+                            <asp:BoundField DataField="NoPago" HeaderText="Cuota" />
+                            <asp:BoundField HeaderText="Fecha" />
                             <asp:BoundField DataField="Interes" HeaderText="Interes" />
                             <asp:BoundField DataField="Capital" HeaderText="Capital" />
-                            <asp:BoundField DataField="Cuota" HeaderText="Cuota" />
                             <asp:BoundField DataField="Balance" HeaderText="Balance" />
                         </Columns>    
+                        <EditRowStyle BackColor="#2461BF" />
+                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#EFF3FB" />
+                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                        <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
                 </div>
             </div>
@@ -130,7 +141,7 @@
             <div class="form-group row justify-content-center">
                 <!--Nuevo-->
                 <div class="col-lg-1 mr-1">
-                    <asp:Button ID="NuevokButton" CssClass="btn btn-primary" runat="server" CausesValidation="False" >
+                    <asp:Button ID="NuevoButton" CssClass="btn btn-primary" runat="server" CausesValidation="False" Text="Nuevo" OnClick="NuevoButton_Click" >
                         
                     </asp:Button>
                     <br />
@@ -139,7 +150,7 @@
 
                 <!--Guardar-->
                 <div class="col-lg-1 mr-3">
-                    <asp:Button ID="GuardarkButton" CssClass="btn btn-primary" runat="server" CausesValidation="False">
+                    <asp:Button ID="GuardarButton" CssClass="btn btn-primary" runat="server" CausesValidation="False" Text="Guardar" OnClick="GuardarButton_Click">
                         
                     </asp:Button>
                     <br />
@@ -148,7 +159,7 @@
 
                 <!--Eliminar-->
                 <div class="col-lg-1 mr-3">
-                    <asp:Button ID="EliminakButton" CssClass="btn btn-primary" runat="server" CausesValidation="False" >
+                    <asp:Button ID="EliminarButton" CssClass="btn btn-primary" runat="server" CausesValidation="False" Text="Eliminar" OnClick="EliminarButton_Click" >
                         
                     </asp:Button>
                     <br />
@@ -157,9 +168,7 @@
 
                 <!--Imprimir-->
                 <div class="col-lg-1 mr-3">
-                    <asp:LinkButton ID="ImprimirLinkButton" CssClass="btn btn-primary" runat="server" CausesValidation="False">
-                        
-                    </asp:LinkButton>
+                    <asp:LinkButton ID="ImprimirButton" CssClass="btn btn-primary" runat="server" CausesValidation="False">Imprimir</asp:LinkButton>
                     <br />
                 </div>      
             </div>
@@ -174,11 +183,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <!--Body-->
-                <div class="modal-body">
-                    <rsweb:reportviewer ID="PrestamoReportViewer" Width="100%" runat="server">
-                        <ServerReport ReportPath=""  ReportServerUrl=""/>
-                    </rsweb:reportviewer>
-                </div>
+                
 
                 <!--Footer-->
                 <div class="modal-footer">
