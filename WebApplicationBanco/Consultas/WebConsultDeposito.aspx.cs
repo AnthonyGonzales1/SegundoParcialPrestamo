@@ -105,11 +105,16 @@ namespace WebApplicationBanco.Consultas
             //DepositoGridView.PageIndex = e.NewPageIndex;
             DepositoGridView.DataBind();
         }
-
-        protected void BuscarButton_Click(object sender, EventArgs e)
+        
+        protected void BuscarButton_Click1(object sender, EventArgs e)
         {
             Filtrar();
             LlenarGridView();
+        }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Reports/ViewerDepositos.aspx");
         }
     }
 }

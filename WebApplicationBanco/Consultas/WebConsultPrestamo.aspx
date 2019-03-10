@@ -43,9 +43,7 @@
                     <asp:TextBox ID="BuscarTextBox" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-lg-1 p-0">
-                    <asp:Button ID="BuscarButton" CssClass="btn btn-secondary mt-4" runat="server" OnClick="BuscarButton_Click" Text="Buscar" >
-                        
-                    </asp:Button>
+                    <asp:Button ID="BuscarButton" CssClass="btn btn-secondary" runat="server" Text="Buscar" OnClick="BuscarButton_Click1" />
                 </div>
             </div>
 
@@ -78,4 +76,5 @@
             <!--Card body end-->
         </div>
     </div>
+    <asp:Button ID="ImprimirButton" CssClass="btn btn-secondary" runat="server" Text="Imprimir" OnClick="ImprimirButton_Click" />
 </asp:Content>

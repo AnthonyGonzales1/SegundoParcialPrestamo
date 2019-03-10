@@ -85,14 +85,7 @@ namespace WebApplicationBanco.Consultas
                     break;
             }
         }
-
-
-        protected void CuentaGridView_SelectedIndexChanged(object sender, GridViewPageEventArgs e)
-        {
-            
-
-        }
-
+        
         protected void CuentaGridView_SelectedIndexChanged1(object sender, EventArgs e)
         {
             RepositorioBase<Cuentas> repositorio = new RepositorioBase<Cuentas>();
@@ -100,11 +93,16 @@ namespace WebApplicationBanco.Consultas
             //CuentaGridView.PageIndex = e.NewPageIndex;
             CuentaGridView.DataBind();
         }
-
-        protected void BuscarButton_Click(object sender, EventArgs e)
+        
+        protected void BuscarButton_Click1(object sender, EventArgs e)
         {
             Filtrar();
             LlenarGridView();
+        }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Reports/ViewerCuentas.aspx");
         }
     }
 }

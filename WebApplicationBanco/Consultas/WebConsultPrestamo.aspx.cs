@@ -108,12 +108,17 @@ namespace WebApplicationBanco.Consultas
            
         }
 
-        protected void BuscarButton_Click(object sender, EventArgs e)
+        protected void BuscarButton_Click1(object sender, EventArgs e)
         {
             PrestamoRepositorio rep = new PrestamoRepositorio();
             Filtrar();
             PrestamoGridView.DataSource = rep.GetList(filter);
             PrestamoGridView.DataBind();
+        }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Reports/ViewerPrestamos.aspx");
         }
     }
 }
