@@ -10,7 +10,7 @@
 namespace WebApplicationBanco.Reports {
     
     
-    public partial class WebForm1 {
+    public partial class ViewerCuentas {
         
         /// <summary>
         /// form1 control.

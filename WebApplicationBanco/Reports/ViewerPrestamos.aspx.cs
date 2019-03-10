@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entities;
+using Microsoft.Reporting.WebForms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,14 @@ namespace WebApplicationBanco.Reports
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            BLL.RepositorioBase<Prestamos> repositorio = new BLL.RepositorioBase<Prestamos>();
+            PrestamoReportViewer.ProcessingMode = ProcessingMode.Local;
+            PrestamoReportViewer.Reset();
 
+            PrestamoReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reports\ReportCuentas.rdlc");
+            PrestamoReportViewer.LocalReport.DataSources.Clear();
+            PrestamoReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Prestamos", repositorio.GetList(x => true)));
+            PrestamoReportViewer.LocalReport.Refresh();
         }
     }
 }

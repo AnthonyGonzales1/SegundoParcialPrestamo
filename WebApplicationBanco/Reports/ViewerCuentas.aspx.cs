@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,15 @@ namespace WebApplicationBanco.Reports
         {
             if (!Page.IsPostBack)
             {
-                
+                BLL.RepositorioBase<Cuentas> repositorio = new BLL.RepositorioBase<Cuentas>();
+                CuentasReportViewer.ProcessingMode = ProcessingMode.Local;
+                CuentasReportViewer.Reset();
+
+                CuentasReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reports\ReportCuentas.rdlc");
+                CuentasReportViewer.LocalReport.DataSources.Clear();
+                CuentasReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Cuentas", repositorio.GetList(x => true)));
+                CuentasReportViewer.LocalReport.Refresh();
+
             }
         }
     }
