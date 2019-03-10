@@ -26,10 +26,9 @@
                     <asp:TextBox ID="BuscarTextBox" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-lg-1 p-0">
-                    <asp:LinkButton ID="BuscarLinkButton" runat="server" CssClass="btn btn-secondary mt-4" OnClick="BuscarLinkButton_Click1" >
-                        <span class="fas fa-search"></span>
-                        Buscar
-                    </asp:LinkButton>
+                    <asp:Button ID="BuscarButton" runat="server" CssClass="btn btn-secondary mt-4" OnClick="BuscarButton_Click" Text="Buscar" >
+                        
+                    </asp:Button>
                     <br />
                     <div class="form-group col-md-2">
                         <asp:Label ID="Label1" runat="server" Text="Desde" />
@@ -46,7 +45,7 @@
             <!--Grid-->
             <div class="row justify-content-center mt-3">
                 <div class="col-lg-11">
-                    <asp:GridView ID="CuentaGridView" runat="server" AllowPaging="True" AutoGenerateColumns="False" CssClass="table table-striped table-hover table-responsive-lg" PageSize="7" OnPageIndexChanged="CuentaGridView_SelectedIndexChanged1" OnSelectedIndexChanged="CuentaGridView_SelectedIndexChanged1" CellPadding="4" ForeColor="#333333" GridLines="None" >
+                    <asp:GridView ID="CuentaGridView" runat="server" AllowPaging="True" AutoGenerateColumns="False" CssClass="table table-striped table-hover table-responsive-lg" PageSize="7" CellPadding="4" ForeColor="#333333" GridLines="None" >
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:BoundField DataField="Fecha" HeaderText="Fecha" />

@@ -85,13 +85,13 @@ namespace WebApplicationBanco.Consultas {
         protected global::System.Web.UI.WebControls.TextBox BuscarTextBox;
         
         /// <summary>
-        /// BuscarLinkButton control.
+        /// BuscarButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton BuscarLinkButton;
+        protected global::System.Web.UI.WebControls.Button BuscarButton;
         
         /// <summary>
         /// PrestamoGridView control.

@@ -43,10 +43,9 @@
                     <asp:TextBox ID="BuscarTextBox" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-lg-1 p-0">
-                    <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-secondary mt-4" runat="server" OnClick="BuscarLinkButton_Click">
-                        <span class="fas fa-search"></span>
-                        Buscar
-                    </asp:LinkButton>
+                    <asp:Button ID="BuscarButton" CssClass="btn btn-secondary mt-4" runat="server" OnClick="BuscarButton_Click" Text="Buscar" >
+                        
+                    </asp:Button>
                 </div>
             </div>
 

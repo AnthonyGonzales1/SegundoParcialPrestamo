@@ -108,7 +108,7 @@ namespace WebApplicationBanco.Consultas
            
         }
 
-        protected void BuscarLinkButton_Click(object sender, EventArgs e)
+        protected void BuscarButton_Click(object sender, EventArgs e)
         {
             PrestamoRepositorio rep = new PrestamoRepositorio();
             Filtrar();

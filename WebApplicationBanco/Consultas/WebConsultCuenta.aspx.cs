@@ -93,23 +93,18 @@ namespace WebApplicationBanco.Consultas
 
         }
 
-        protected void BuscarLinkButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        protected void BuscarLinkButton_Click1(object sender, EventArgs e)
-        {
-            Filtrar();
-            LlenarGridView();
-        }
-
         protected void CuentaGridView_SelectedIndexChanged1(object sender, EventArgs e)
         {
             RepositorioBase<Cuentas> repositorio = new RepositorioBase<Cuentas>();
             CuentaGridView.DataSource = repositorio.GetList(filter);
             //CuentaGridView.PageIndex = e.NewPageIndex;
             CuentaGridView.DataBind();
+        }
+
+        protected void BuscarButton_Click(object sender, EventArgs e)
+        {
+            Filtrar();
+            LlenarGridView();
         }
     }
 }
