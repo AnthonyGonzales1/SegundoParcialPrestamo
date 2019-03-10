@@ -70,7 +70,6 @@
                     </asp:Button>
                 </div>
         </div>
-
             <!--Card footer end-->
         </div>
 </div>
