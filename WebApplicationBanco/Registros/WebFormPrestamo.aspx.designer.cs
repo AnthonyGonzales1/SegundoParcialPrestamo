@@ -244,7 +244,7 @@ namespace WebApplicationBanco.Registros {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ImprimirButton;
+        protected global::System.Web.UI.WebControls.Button ImprimirButton;
         
         /// <summary>
         /// reportModal control.

@@ -51,68 +51,40 @@ namespace WebApplicationBanco.Registros
                 0
                 );
         }
+        
 
-        protected void GuardarLinkButton_Click(object sender, EventArgs e)
+        protected void NuevoButton_Click(object sender, EventArgs e)
         {
+            Limpiar();
+        }
+
+        protected void GuardarButton_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
             {
-                if (Page.IsValid)
+                RepositorioBase<Cuentas> rep = new RepositorioBase<Cuentas>();
+
+                if (ToInt(IdTextBox.Text) == 0)
                 {
-                    RepositorioBase<Cuentas> rep = new RepositorioBase<Cuentas>();
-
-                    if (ToInt(IdTextBox.Text) == 0)
+                    if (rep.Guardar(LlenaClase()))
                     {
-                        if (rep.Guardar(LlenaClase()))
-                        {
-                            CallModal("Se guardo la cuenta");
-                            Limpiar();
+                        CallModal("Se guardo la cuenta");
+                        Limpiar();
 
-                        }
                     }
-                    else
+                }
+                else
+                {
+                    if (rep.Modificar(LlenaClase()))
                     {
-                        if (rep.Modificar(LlenaClase()))
-                        {
-                            CallModal("Se modifico la cuenta");
-                            Limpiar();
-                        }
+                        CallModal("Se modifico la cuenta");
+                        Limpiar();
                     }
                 }
             }
         }
 
-        protected void EliminarLinkButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        protected void NuevoLinkButton_Click(object sender, EventArgs e)
-        {
-        }
-
-        protected void BuscarLinkButton_Click(object sender, EventArgs e)
-        {
-        }
-
-        protected void BuscarLinkButton_Click1(object sender, EventArgs e)
-        {
-            RepositorioBase<Cuentas> repositorio = new RepositorioBase<Cuentas>();
-            Cuentas cuentas = repositorio.Buscar(ToInt(IdTextBox.Text));
-            if (cuentas != null)
-            {
-                FechaTextBox.Text = cuentas.Fecha.ToString("yyyy-MM-dd");
-                NombreTextBox.Text = cuentas.Nombre;
-                BalanceTextBox.Text = cuentas.Balance.ToString();
-            }
-            else
-                CallModal("Esta cuenta no existe");
-        }
-
-        protected void NuevoLinkButton_Click1(object sender, EventArgs e)
-        {
-            Limpiar();
-        }
-
-        protected void EliminarLinkButton_Click1(object sender, EventArgs e)
+        protected void EliminarButton_Click(object sender, EventArgs e)
         {
             CuentaRepositorio repositorio = new CuentaRepositorio();
             Cuentas cuentas = repositorio.Buscar(ToInt(IdTextBox.Text));
@@ -132,6 +104,20 @@ namespace WebApplicationBanco.Registros
                  else
                      CallModal("Esta cuenta posee depositos enlazados a ella, no se puede eliminar");*/
             }
+        }
+
+        protected void BuscarButton_Click(object sender, EventArgs e)
+        {
+            RepositorioBase<Cuentas> repositorio = new RepositorioBase<Cuentas>();
+            Cuentas cuentas = repositorio.Buscar(ToInt(IdTextBox.Text));
+            if (cuentas != null)
+            {
+                FechaTextBox.Text = cuentas.Fecha.ToString("yyyy-MM-dd");
+                NombreTextBox.Text = cuentas.Nombre;
+                BalanceTextBox.Text = cuentas.Balance.ToString();
+            }
+            else
+                CallModal("Esta cuenta no existe");
         }
     }
 }

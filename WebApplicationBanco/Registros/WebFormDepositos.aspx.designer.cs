@@ -31,13 +31,13 @@ namespace WebApplicationBanco.Registros {
         protected global::System.Web.UI.WebControls.TextBox IdTextBox;
         
         /// <summary>
-        /// BuscarLinkButton control.
+        /// BuscarButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton BuscarLinkButton;
+        protected global::System.Web.UI.WebControls.Button BuscarButton;
         
         /// <summary>
         /// Label5 control.
@@ -139,31 +139,31 @@ namespace WebApplicationBanco.Registros {
         protected global::System.Web.UI.WebControls.RangeValidator RangeValidator;
         
         /// <summary>
-        /// NuevoLinkButton control.
+        /// NuevoButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton NuevoLinkButton;
+        protected global::System.Web.UI.WebControls.Button NuevoButton;
         
         /// <summary>
-        /// GuardarLinkButton control.
+        /// GuardarButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton GuardarLinkButton;
+        protected global::System.Web.UI.WebControls.Button GuardarButton;
         
         /// <summary>
-        /// EliminarLinkButton control.
+        /// EliminarButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton EliminarLinkButton;
+        protected global::System.Web.UI.WebControls.Button EliminarButton;
         
         /// <summary>
         /// ValidationSummary control.

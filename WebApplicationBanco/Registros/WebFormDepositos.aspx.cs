@@ -76,21 +76,23 @@ namespace WebApplicationBanco.Registros
             ConceptoTextBox.Text = d.Concepto;
             MontoTextBox.Text = d.Monto.ToString();
         }
-
-        protected void BuscarLinkButton_Click(object sender, EventArgs e)
-        { }
-
-        protected void NuevoLinkButton_Click(object sender, EventArgs e)
+        
+        protected void BuscarButton_Click(object sender, EventArgs e)
         {
+            RepositorioBase<Depositos> repositorio = new RepositorioBase<Depositos>();
+            Depositos depositos = repositorio.Buscar(ToInt(IdTextBox.Text));
+            if (depositos != null)
+                LlenarCampos(depositos);
+            else
+                CallModal("Este deposito no existe");
         }
 
-        protected void GuardarLinkButton_Click(object sender, EventArgs e)
-        { }
+        protected void NuevoButton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
 
-        protected void EliminarLinkButton_Click(object sender, EventArgs e)
-        { }
-
-        protected void GuardarLinkButton_Click1(object sender, EventArgs e)
+        protected void GuardarButton_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
@@ -115,12 +117,7 @@ namespace WebApplicationBanco.Registros
             }
         }
 
-        protected void NuevoLinkButton_Click1(object sender, EventArgs e)
-        {
-            Limpiar();
-        }
-
-        protected void EliminarLinkButton_Click1(object sender, EventArgs e)
+        protected void EliminarButton_Click(object sender, EventArgs e)
         {
             DepositoRepositorio repositorio = new DepositoRepositorio();
             Depositos depositos = repositorio.Buscar(ToInt(IdTextBox.Text));
@@ -135,17 +132,6 @@ namespace WebApplicationBanco.Registros
                 else
                     CallModal("Se no se pudo eliminar el deposito");
             }
-        }
-
-        protected void BuscarLinkButton_Click1(object sender, EventArgs e)
-        {
-            RepositorioBase<Depositos> repositorio = new RepositorioBase<Depositos>();
-            Depositos depositos = repositorio.Buscar(ToInt(IdTextBox.Text));
-            if (depositos != null)
-                LlenarCampos(depositos);
-            else
-                CallModal("Este deposito no existe");
-
         }
     }
 }

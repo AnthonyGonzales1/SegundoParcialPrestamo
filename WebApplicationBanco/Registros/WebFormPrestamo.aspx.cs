@@ -111,30 +111,31 @@ namespace WebApplicationBanco.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            PrestamoRepositorio rep = new PrestamoRepositorio();
-            Prestamos prestamo = rep.Buscar(ToInt(IdTextBox.Text));
-
-            if (prestamo != null)
-            {
-                LlenaCampo(prestamo);
-                SeBusco = true;
-                ViewState["SeBusco"] = SeBusco;
-            }
-            else
-                CallModal("Este prestamo no existe.");
+           
         }
 
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
-            Limpiar();
+           
         }
 
         private bool Calculo()
         {
             return (CuotaGridView.Rows.Count > 0 || CuotaGridView.DataSource != null) ? true : false;
         }
+        
+        
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
 
-        protected void GuardarButton_Click(object sender, EventArgs e)
+        }
+
+        protected void NuevoButton_Click2(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        protected void GuardarButton_Click2(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
@@ -165,8 +166,9 @@ namespace WebApplicationBanco.Registros
             }
         }
 
-        protected void EliminarButton_Click(object sender, EventArgs e)
+        protected void EliminarButton_Click2(object sender, EventArgs e)
         {
+
             PrestamoRepositorio rep = new PrestamoRepositorio();
             Prestamos prestamos = rep.Buscar(ToInt(IdTextBox.Text));
 
@@ -182,25 +184,40 @@ namespace WebApplicationBanco.Registros
             }
         }
 
-        protected void CalcularButton_Click(object sender, EventArgs e)
+        protected void BuscarButton_Click1(object sender, EventArgs e)
+        {
+            PrestamoRepositorio rep = new PrestamoRepositorio();
+            Prestamos prestamo = rep.Buscar(ToInt(IdTextBox.Text));
+
+            if (prestamo != null)
+            {
+                LlenaCampo(prestamo);
+                SeBusco = true;
+                ViewState["SeBusco"] = SeBusco;
+            }
+            else
+                CallModal("Este prestamo no existe.");
+        }
+
+        protected void CalcularButton_Click1(object sender, EventArgs e)
         {
             detalle.Clear();
             int tiempo = ToInt(TiempoTextBox.Text);
             decimal interes = (ToDecimal(InteresTextBox.Text)); interes /= 100;
             decimal cuota = ToDecimal(CapitalTextBox.Text);
             decimal capital = ToDecimal(CapitalTextBox.Text);
-            decimal totalCapital = capital /tiempo, totalInteres = capital * interes;
+            decimal totalCapital = capital / tiempo, totalInteres = capital * interes;
 
             for (int i = 1; i <= ToInt(TiempoTextBox.Text); ++i)
             {
                 Cuotas cuotas = new Cuotas();
                 cuotas.PrestamoId = ToInt(IdTextBox.Text);
-                cuotas.Cuota = decimal.Round(capital+interes);
-                cuotas.Interes = decimal.Round(totalInteres/tiempo);
-                cuotas.Capital = decimal.Round(capital /tiempo);
-                cuotas.Balance = decimal.Round(cuotas.Interes + tiempo+capital) - cuotas.Capital;
+                cuotas.Cuota = decimal.Round(capital + interes);
+                cuotas.Interes = decimal.Round(totalInteres / tiempo);
+                cuotas.Capital = decimal.Round(capital / tiempo);
+                cuotas.Balance = decimal.Round(cuotas.Interes + tiempo + capital) - cuotas.Capital;
                 capital = cuotas.Balance;
-                
+
                 detalle.Add(cuotas);
             }
             CuotaGridView.DataSource = detalle.ToList();
@@ -208,7 +225,6 @@ namespace WebApplicationBanco.Registros
             ViewState["Detalle"] = detalle;
             CapitalTotalTextBox.Text = totalCapital.ToString();
             InteresTotalTextBox.Text = totalInteres.ToString();
-
         }
     }
 }

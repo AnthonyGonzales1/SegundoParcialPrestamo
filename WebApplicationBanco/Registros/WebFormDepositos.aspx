@@ -15,10 +15,9 @@
                     <asp:TextBox ID="IdTextBox" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                 </div>
                 <div class="col-lg-1">
-                    <asp:LinkButton ID="BuscarLinkButton" runat="server" CausesValidation="False" CssClass="btn btn-secondary" OnClick="BuscarLinkButton_Click1" >
-                        <span class="fas fa-search"></span>
-                        Buscar
-                    </asp:LinkButton>
+                    <asp:Button ID="BuscarButton" runat="server" CausesValidation="False" CssClass="btn btn-secondary" OnClick="BuscarButton_Click" Text="Buscar" >
+                        
+                    </asp:Button>
                 </div>
             </div>
 
@@ -73,22 +72,19 @@
             <!--Butones-->
             <div class="form-group row justify-content-center">
                 <div class="col-lg-1 mr-1">
-                    <asp:LinkButton ID="NuevoLinkButton" runat="server" CausesValidation="False" CssClass="btn btn-primary" OnClick="NuevoLinkButton_Click1" >
-                        <span class="fas fa-plus"></span>
-                        Nuevo
-                    </asp:LinkButton>
+                    <asp:Button ID="NuevoButton" runat="server" CausesValidation="False" CssClass="btn btn-primary" OnClick="NuevoButton_Click" Text="Nuevo" >
+                       
+                    </asp:Button>
                 </div>
                 <div class="col-lg-1 mr-3">
-                    <asp:LinkButton ID="GuardarLinkButton" runat="server" CssClass="btn btn-primary" OnClick="GuardarLinkButton_Click1" >
-                        <span class="fas fa-save"></span>
-                        Guardar
-                    </asp:LinkButton>
+                    <asp:Button ID="GuardarButton" runat="server" CssClass="btn btn-primary" OnClick="GuardarButton_Click" Text="Guardar" >
+                        
+                    </asp:Button>
                 </div>
                 <div class="col-lg-1 mr-3">
-                    <asp:LinkButton ID="EliminarLinkButton" runat="server" CausesValidation="False" CssClass="btn btn-primary" OnClick="EliminarLinkButton_Click1" >
-                        <span class="fa fa-trash-alt"></span>
-                        Eliminar
-                    </asp:LinkButton>
+                    <asp:Button ID="EliminarButton" runat="server" CausesValidation="False" CssClass="btn btn-primary" OnClick="EliminarButton_Click" Text="Elminar" >
+                        
+                    </asp:Button>
                 </div>
             </div>
 
