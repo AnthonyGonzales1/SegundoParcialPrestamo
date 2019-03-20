@@ -31,7 +31,6 @@
                     </asp:DropDownList>
                 </div>
                 <div class="col-lg-1">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="CuentaDropDownList" ErrorMessage="Debe seleccionar" Text="*"></asp:RequiredFieldValidator>
                 </div>
             </div>
 
@@ -54,7 +53,6 @@
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo Números" ValidationExpression="^[0-9]*$" ControlToValidate="ConceptoTextBox" ForeColor="Red" ValidationGroup="Guardar">Solo Números</asp:RegularExpressionValidator>
                 </div>
                 <div class="col-lg-1">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ConceptoTextBox" Display="Dynamic" ErrorMessage="Indique un concepto" Text="*"></asp:RequiredFieldValidator>
                 </div>
             </div>
 
@@ -67,7 +65,6 @@
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Solo Números" ValidationExpression="^[0-9]*$" ControlToValidate="MontoTextBox" ForeColor="Red" ValidationGroup="Guardar">Solo Números</asp:RegularExpressionValidator>
                 </div>
                 <div class="col-lg-1">
-                    <asp:RangeValidator ID="RangeValidator" runat="server" ControlToValidate="MontoTextBox" Display="Dynamic" ErrorMessage="Ingrese un monto positivo" MaximumValue="999999" MinimumValue="0" Text="*" Type="Integer"></asp:RangeValidator>
                 </div>
             </div>
 

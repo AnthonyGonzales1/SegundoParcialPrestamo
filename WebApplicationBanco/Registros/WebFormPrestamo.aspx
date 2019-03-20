@@ -48,7 +48,6 @@
                     </asp:DropDownList>
                 </div>
                 <div class="col-lg-1">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="CuentaDropDownList" runat="server" Text="*" Display="Dynamic" ErrorMessage="Debes seleccionar una cuenta bancaria"></asp:RequiredFieldValidator>
                 </div>
             </div>
 
@@ -62,7 +61,6 @@
 
                 </div>
                 <div class="col-lg-1">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="CapitalTextBox" Text="*" runat="server" Display="Dynamic" ErrorMessage="Indique un concepto"></asp:RequiredFieldValidator>
                 </div>
             </div>
 
@@ -81,8 +79,6 @@
                     </div>
                 </div>
                 <div class="col-lg-1">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="InteresTextBox" Text="*" Display="Dynamic" runat="server" ErrorMessage="Debe ingresar una tasa de interes"></asp:RequiredFieldValidator>
-                    <asp:RangeValidator ID="RangeValidator" ControlToValidate="InteresTextBox" runat="server" Display="Dynamic" Text="*" ErrorMessage="El interes no es valido" Type="Integer" MinimumValue="0" MaximumValue="999999"></asp:RangeValidator>
                 </div>
             </div>
 
@@ -95,8 +91,6 @@
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Solo Números" ForeColor="Red" ValidationExpression="^[0-9]*$" ControlToValidate="TiempoTextBox" ValidationGroup="Guardar">Solo Números</asp:RegularExpressionValidator>
                 </div>
                 <div class="col-lg-1">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="TiempoTextBox" Text="*" Display="Dynamic" runat="server" ErrorMessage="Debe ingresar el tiempo de pago"></asp:RequiredFieldValidator>
-                    <asp:RangeValidator ID="RangeValidator4" ControlToValidate="TiempoTextBox" runat="server" Display="Dynamic" Text="*" ErrorMessage="El tiempo no es valido" Type="Integer" MinimumValue="0" MaximumValue="999999"></asp:RangeValidator>
                 </div>
                 <div class="w-100"></div>
                 <div class="col-lg-6">

@@ -40,7 +40,6 @@
 
                 </div>
                 <div class="col-lg-1">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="NombreTextBox" Display="Dynamic" ErrorMessage="Indique un nombre de cuenta" Text="*"></asp:RequiredFieldValidator>
                 </div>
             </div>
 
