@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebConsultCuenta.aspx.cs" Inherits="WebApplicationBanco.Consultas.WebConsultCuenta" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="card">
+    <div class="col-sm-6">
         <div class="card-header text-center text-white bg-primary">
             <h3>Consulta de cuentas</h3>
         </div>

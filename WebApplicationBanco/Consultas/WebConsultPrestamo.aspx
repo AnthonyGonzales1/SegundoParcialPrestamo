@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebConsultPrestamo.aspx.cs" Inherits="WebApplicationBanco.Consultas.WebConsultPrestamo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="card">
+    <div class="col-sm-6">
         <div class="card-header text-center text-white bg-primary">
             <h3>Consulta de pretasmos</h3>
         </div>

@@ -11,7 +11,7 @@
         }
     </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div class="card">
+    <div class="col-sm-6">
         <!--Card Header-->
         <div class="card-header text-center text-white bg-primary">
             <h3>Registro de prestamos</h3>

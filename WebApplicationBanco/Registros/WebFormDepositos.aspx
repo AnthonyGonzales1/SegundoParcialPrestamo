@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebFormDepositos.aspx.cs" Inherits="WebApplicationBanco.Registros.WebFormDepositos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="card">
+    <div class="col-sm-6">
         <div class="card-header text-center text-white bg-primary">
             <h3>Registro de depositos</h3>
         </div>
