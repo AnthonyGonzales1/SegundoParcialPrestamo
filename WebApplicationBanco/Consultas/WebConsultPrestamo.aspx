@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebConsultPrestamo.aspx.cs" Inherits="WebApplicationBanco.Consultas.WebConsultPrestamo" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="card">
         <div class="card-header text-center text-white bg-primary">
@@ -23,7 +24,7 @@
             <!---->
             <div class="row justify-content-center">
                 <div class="col-lg-4">
-                    <asp:Label ID="FiltroLabel"  runat="server" Text="Filtrar-por">
+                    <asp:Label ID="FiltroLabel" runat="server" Text="Filtrar-por">
                         Filtro:
                     </asp:Label>
                     <asp:DropDownList ID="FiltroDropDownList" CssClass="form-control" runat="server">
@@ -34,9 +35,9 @@
                         <asp:ListItem>Capital</asp:ListItem>
                         <asp:ListItem>Interes</asp:ListItem>
                         <asp:ListItem>Tiempo</asp:ListItem>
-                        <asp:ListItem>Monto</asp:ListItem>         
+                        <asp:ListItem>Monto</asp:ListItem>
                     </asp:DropDownList>
-                </div>  
+                </div>
                 <div class="col-lg-1"></div>
                 <div class="col-lg-4">
                     <asp:Label ID="BuscarLabel" runat="server" Text="Buscar">Buscar:</asp:Label>
@@ -49,7 +50,7 @@
 
             <!--Grid-->
             <div class="row justify-content-center mt-3">
-                <div class="col-lg-11">           
+                <div class="col-lg-11">
                     <asp:GridView ID="PrestamoGridView" runat="server" AllowPaging="True" PageSize="7" CssClass="table table-striped table-hover table-responsive-lg" AutoGenerateColumns="False" OnPageIndexChanging="PrestamoGridView_PageIndexChanging" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="PrestamoGridView_SelectedIndexChanged">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
@@ -58,7 +59,7 @@
                             <asp:BoundField DataField="Interes" HeaderText="Interes" />
                             <asp:BoundField DataField="Tiempo" HeaderText="Tiempo" />
                             <asp:BoundField DataField="Monto" HeaderText="Monto" />
-                        </Columns>    
+                        </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

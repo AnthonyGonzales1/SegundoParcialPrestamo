@@ -144,9 +144,9 @@ namespace WebApplicationBanco.Registros
             {
                 Cuotas cuotas = new Cuotas();
                 cuotas.PrestamoId = ToInt(IdTextBox.Text);
-                cuotas.Cuota = decimal.Round(capital + interes);
-                cuotas.Interes = decimal.Round(totalInteres / tiempo);
                 cuotas.Capital = decimal.Round(capital / tiempo);
+                cuotas.Interes = decimal.Round(totalInteres / tiempo);
+                cuotas.Cuota = decimal.Round(capital + interes);
                 cuotas.Balance = decimal.Round(cuotas.Interes + tiempo + capital) - cuotas.Capital;
                 capital = cuotas.Balance;
 
@@ -215,6 +215,11 @@ namespace WebApplicationBanco.Registros
             }
 
             protected void ImprimirButton_Click1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void CuotaGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

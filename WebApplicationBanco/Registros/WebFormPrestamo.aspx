@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebFormPrestamo.aspx.cs" Inherits="WebApplicationBanco.Registros.WebFormPrestamo" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script type="text/javascript">
         function openReportModal() {
             $("#<%=reportModal.ClientID%>").modal({
                 backdrop: 'static',
                 keyboard: false
-            }); 
+            });
             $("#<%=reportModal.ClientID%>").modal("show");
         }
     </script>
@@ -22,15 +23,17 @@
             <div class="form-group row justify-content-center">
                 sPrestamo ID<div class="col-lg-3">
                     <div class="input-group">
-                        <asp:TextBox ID="IdTextBox" CssClass="form-control" TextMode="Number" runat="server" ></asp:TextBox>
+                        <asp:TextBox ID="IdTextBox" CssClass="form-control" TextMode="Number" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="IdRFV" runat="server" ErrorMessage="No puede estar vacío" ControlToValidate="IdTextBox" Display="Dynamic" ForeColor="Red" ValidationGroup="Guardar">*No puede estar vacío</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="IdREV" runat="server" ErrorMessage="Solo Números" ForeColor="Red" ValidationExpression="^[0-9]*$" ControlToValidate="IdTextBox" ValidationGroup="Guardar">Solo Números</asp:RegularExpressionValidator>
                         <div class="input-group-append">
                             <asp:Button ID="BuscarButton" runat="server" CssClass="btn btn-secondary" Text="Buscar" OnClick="BuscarButton_Click" />
                         </div>
-                    </div>                 
+                    </div>
                 </div>
 
                 <!--Fecha-->
-                
+
                 <div class="col-lg-3">
                     <asp:TextBox ID="FechaTextBox" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
                 </div>
@@ -53,7 +56,10 @@
             <div class="form-group row justify-content-center">
                 <asp:Label ID="Label4" CssClass="col-form-label" Text="Capital:" runat="server"></asp:Label>
                 <div class="col-lg-4">
-                    <asp:TextBox ID="CapitalTextBox" CssClass="form-control"  runat="server"></asp:TextBox>
+                    <asp:TextBox ID="CapitalTextBox" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="No puede estar vacío" ControlToValidate="CapitalTextBox" Display="Dynamic" ForeColor="Red" ValidationGroup="Guardar">*No puede estar vacío</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo Números" ForeColor="Red" ValidationExpression="^[0-9]*$" ControlToValidate="CapitalTextBox" ValidationGroup="Guardar">Solo Números</asp:RegularExpressionValidator>
+
                 </div>
                 <div class="col-lg-1">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="CapitalTextBox" Text="*" runat="server" Display="Dynamic" ErrorMessage="Indique un concepto"></asp:RequiredFieldValidator>
@@ -67,6 +73,9 @@
                     <div class="input-group">
                         <div class="input-group-append">
                             <asp:TextBox ID="InteresTextBox" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="No puede estar vacío" ControlToValidate="InteresTextBox" Display="Dynamic" ForeColor="Red" ValidationGroup="Guardar">*No puede estar vacío</asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Solo Números" ForeColor="Red" ValidationExpression="^[0-9]*$" ControlToValidate="InteresTextBox" ValidationGroup="Guardar">Solo Números</asp:RegularExpressionValidator>
+
                             <span class="input-group-text">%</span>
                         </div>
                     </div>
@@ -76,12 +85,14 @@
                     <asp:RangeValidator ID="RangeValidator" ControlToValidate="InteresTextBox" runat="server" Display="Dynamic" Text="*" ErrorMessage="El interes no es valido" Type="Integer" MinimumValue="0" MaximumValue="999999"></asp:RangeValidator>
                 </div>
             </div>
-            
+
             <!--Tiempo-->
             <div class="form-group row justify-content-center">
                 <asp:Label ID="Label7" CssClass="col-form-label" Text="Tiempo" runat="server">Tiempo:</asp:Label>
                 <div class="col-lg-4">
-                    <asp:TextBox ID="TiempoTextBox" CssClass="form-control"  runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TiempoTextBox" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="No puede estar vacío" ControlToValidate="TiempoTextBox" Display="Dynamic" ForeColor="Red" ValidationGroup="Guardar">*No puede estar vacío</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Solo Números" ForeColor="Red" ValidationExpression="^[0-9]*$" ControlToValidate="TiempoTextBox" ValidationGroup="Guardar">Solo Números</asp:RegularExpressionValidator>
                 </div>
                 <div class="col-lg-1">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="TiempoTextBox" Text="*" Display="Dynamic" runat="server" ErrorMessage="Debe ingresar el tiempo de pago"></asp:RequiredFieldValidator>
@@ -96,15 +107,16 @@
 
             <!--Grid-->
             <div class="row justify-content-center mt-3">
-                <div class="col-lg-11">           
-                    <asp:GridView ID="CuotaGridView" runat="server" AllowPaging="True" PageSize="7" CssClass="table table-striped table-hover table-responsive-lg" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <div class="col-lg-11">
+                    <asp:GridView ID="CuotaGridView" runat="server" AutoGenerateColumns="False" CellPadding="4" class="table table-condensed table-bordered table-responsive" ForeColor="#333333" GridLines="None">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
-                            <asp:BoundField HeaderText="Fecha" />
+                            <asp:BoundField DataField="PrestamoId" HeaderText="Cuota" />
+                            <asp:BoundField DataField="Capital" HeaderText="Fecha" />
                             <asp:BoundField DataField="Interes" HeaderText="Interes" />
-                            <asp:BoundField DataField="Capital" HeaderText="Capital" />
+                            <asp:BoundField DataField="Cuota" HeaderText="Capital" />
                             <asp:BoundField DataField="Balance" HeaderText="Balance" />
-                        </Columns>    
+                        </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -122,14 +134,20 @@
             <div class="form-group row justify-content-center">
                 <div class="col-lg-2 mr-2">
                     <asp:TextBox ID="InteresTotalTextBox" CssClass="form-control" Visible="false" ReadOnly="true" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="No puede estar vacío" ControlToValidate="InteresTextBox" Display="Dynamic" ForeColor="Red" ValidationGroup="Guardar">*No puede estar vacío</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Solo Números" ForeColor="Red" ValidationExpression="^[0-9]*$" ControlToValidate="InteresTextBox" ValidationGroup="Guardar">Solo Números</asp:RegularExpressionValidator>
+
                 </div>
                 <div class="col-lg-2 mr-3">
                 </div>
                 <div class="col-lg-2 ml-5 mr-1">
                     <asp:TextBox ID="CapitalTotalTextBox" CssClass="form-control" Visible="false" ReadOnly="true" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="No puede estar vacío" ControlToValidate="CapitalTotalTextBox" Display="Dynamic" ForeColor="Red" ValidationGroup="Guardar">*No puede estar vacío</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="Solo Números" ForeColor="Red" ValidationExpression="^[0-9]*$" ControlToValidate="CapitalTotalTextBox" ValidationGroup="Guardar">Solo Números</asp:RegularExpressionValidator>
+
                 </div>
             </div>
-    
+
             <!--Card body end-->
         </div>
 
@@ -152,13 +170,13 @@
                 <div class="col-lg-1 mr-3">
                     <asp:Button ID="EliminarButton" runat="server" CssClass="btn btn-secondary" Text="Elminar" OnClick="EliminarButton_Click" />
                     <br />
-                </div> 
+                </div>
 
                 <!--Imprimir-->
                 <div class="col-lg-1 mr-3">
                     <asp:Button ID="ImprimirButton" runat="server" CssClass="btn btn-secondary" Text="Imprimir" OnClick="ImprimirButton_Click1" />
                     <br />
-                </div>      
+                </div>
             </div>
 
             <!--Card footer end-->
@@ -167,11 +185,11 @@
 
 
     <!--Report Modal-->
-    <div class="modal fade" id="reportModal"  role="dialog" runat="server">
+    <div class="modal fade" id="reportModal" role="dialog" runat="server">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <!--Body-->
-                
+
 
                 <!--Footer-->
                 <div class="modal-footer">

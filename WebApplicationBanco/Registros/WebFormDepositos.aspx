@@ -13,6 +13,9 @@
                 <asp:Label ID="Label1" runat="server" CssClass="col-form-label" Text="DepositoId">DepositoId:</asp:Label>
                 <div class="col-lg-4">
                     <asp:TextBox ID="IdTextBox" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="IdRFV" runat="server" ErrorMessage="No puede estar vacío" ControlToValidate="IdTextBox" Display="Dynamic" ForeColor="Red" ValidationGroup="Guardar">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="IdREV" runat="server" ErrorMessage="Solo Números" ValidationExpression="^[0-9]*$" ControlToValidate="IdTextBox" ForeColor="Red" ValidationGroup="Guardar">Solo Números</asp:RegularExpressionValidator>
+
                 </div>
                 <div class="col-lg-1">
                     <asp:Button ID="BuscarButton" runat="server" CssClass="btn btn-secondary" Text="Buscar" OnClick="BuscarButton_Click1" />
@@ -47,6 +50,8 @@
                 <asp:Label ID="Label4" runat="server" CssClass="col-form-label" Text="Concepto">Concepto:</asp:Label>
                 <div class="col-lg-4">
                     <asp:TextBox ID="ConceptoTextBox" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="No puede estar vacío" ControlToValidate="ConceptoTextBox" Display="Dynamic" ForeColor="Red" ValidationGroup="Guardar">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo Números" ValidationExpression="^[0-9]*$" ControlToValidate="ConceptoTextBox" ForeColor="Red" ValidationGroup="Guardar">Solo Números</asp:RegularExpressionValidator>
                 </div>
                 <div class="col-lg-1">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ConceptoTextBox" Display="Dynamic" ErrorMessage="Indique un concepto" Text="*"></asp:RequiredFieldValidator>
@@ -58,6 +63,8 @@
                 <asp:Label ID="Label6" runat="server" CssClass="col-form-label" Text="Monto">Monto:</asp:Label>
                 <div class="col-lg-4">
                     <asp:TextBox ID="MontoTextBox" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="No puede estar vacío" ControlToValidate="MontoTextBox" Display="Dynamic" ForeColor="Red" ValidationGroup="Guardar">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Solo Números" ValidationExpression="^[0-9]*$" ControlToValidate="MontoTextBox" ForeColor="Red" ValidationGroup="Guardar">Solo Números</asp:RegularExpressionValidator>
                 </div>
                 <div class="col-lg-1">
                     <asp:RangeValidator ID="RangeValidator" runat="server" ControlToValidate="MontoTextBox" Display="Dynamic" ErrorMessage="Ingrese un monto positivo" MaximumValue="999999" MinimumValue="0" Text="*" Type="Integer"></asp:RangeValidator>
@@ -66,6 +73,7 @@
 
             <!--Card body end-->
         </div>
+
         <div class="card-footer">
             <!--Butones-->
             <div class="form-group row justify-content-center">

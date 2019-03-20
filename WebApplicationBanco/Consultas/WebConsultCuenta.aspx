@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebConsultCuenta.aspx.cs" Inherits="WebApplicationBanco.Consultas.WebConsultCuenta" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="card">
-    <div class="card-header text-center text-white bg-primary">
-        <h3>Consulta de cuentas</h3>
-    </div>
-    <div class="card-body">
+        <div class="card-header text-center text-white bg-primary">
+            <h3>Consulta de cuentas</h3>
+        </div>
+        <div class="card-body">
             <!---->
             <div class="row justify-content-center">
                 <div class="col-lg-4">
@@ -38,12 +39,12 @@
                     </div>
                     <br />
                 </div>
-        </div>
+            </div>
 
             <!--Grid-->
             <div class="row justify-content-center mt-3">
                 <div class="col-lg-11">
-                    <asp:GridView ID="CuentaGridView" runat="server" AllowPaging="True" AutoGenerateColumns="False" CssClass="table table-striped table-hover table-responsive-lg" PageSize="7" CellPadding="4" ForeColor="#333333" GridLines="None" >
+                    <asp:GridView ID="CuentaGridView" runat="server" AllowPaging="True" AutoGenerateColumns="False" CssClass="table table-striped table-hover table-responsive-lg" PageSize="7" CellPadding="4" ForeColor="#333333" GridLines="None">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
@@ -62,7 +63,7 @@
                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
                 </div>
-        </div>
+            </div>
 
             <!--Card body end-->
         </div>
